@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Nueva Flor</title>
+</head>
+<body>
+    <h1>Agregar Nueva Flor</h1>
+    <form th:action="@{/flores}" th:object="${flor}" method="post">
+        <label>Tipo:</label>
+        <input type="text" th:field="*{tipo}" />
+        <br/>
+        <label>Color:</label>
+        <input type="text" th:field="*{color}" />
+        <br/>
+        <label>Variedad:</label>
+        <input type="text" th:field="*{variedad}" />
+        <br/>
+        <label>Cantidad:</label>
+        <input type="number" th:field="*{cantidad}" />
+        <br/>
+        <label>Precio de Compra:</label>
+        <input type="number" th:field="*{precioCompra}" step="0.01" />
+        <br/>
+        <label>Precio de Venta:</label>
+        <input type="number" th:field="*{precioVenta}" step="0.01" />
+        <br/>
+        <button type="submit">Guardar Flor</button>
+    </form>
+    <a href="/flores">Regresar a la lista de flores</a>
+</body>
+</html>

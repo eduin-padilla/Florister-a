@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de Flores</title>
+</head>
+<body>
+    <h1>Lista de Flores</h1>
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Tipo</th>
+            <th>Color</th>
+            <th>Variedad</th>
+            <th>Cantidad</th>
+            <th>Precio Compra</th>
+            <th>Precio Venta</th>
+        </tr>
+        <tr th:each="flor : ${flores}">
+            <td th:text="${flor.id}"></td>
+            <td th:text="${flor.tipo}"></td>
+            <td th:text="${flor.color}"></td>
+            <td th:text="${flor.variedad}"></td>
+            <td th:text="${flor.cantidad}"></td>
+            <td th:text="${flor.precioCompra}"></td>
+            <td th:text="${flor.precioVenta}"></td>
+            
+            <td>
+                <!-- Enlace para eliminar la flor -->
+                <a th:href="@{/flores/eliminar/{id}(id=${flor.id})}" onclick="return confirm('¿Estás seguro de que quieres eliminar esta flor?')">Eliminar</a>
+            </td>
+
+        </tr>
+    </table>
+    <a href="/flores/nueva">Agregar Nueva Flor</a>
+    
+</body>
+</html>
