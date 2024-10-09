@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface ArregloFloralRepository extends JpaRepository<ArregloFloral, Long> {
-    // Métodos personalizados si es necesario
+    
 }

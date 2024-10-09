@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FlorRepository extends JpaRepository<Flor, Long> {
-    // Puedes agregar métodos personalizados aquí si lo necesitas
+    
 }
