@@ -51,3 +51,5 @@ public class florController{
         return "redirect:/flores";
     }
 }
+
+//haciendo pruebas 
