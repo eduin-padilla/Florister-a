@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Lista de Flores</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Lista de Flores</h1>
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Tipo</th>
-            <th>Color</th>
-            <th>Variedad</th>
-            <th>Cantidad</th>
-            <th>Precio Compra</th>
-            <th>Precio Venta</th>
-        </tr>
-        <tr th:each="flor : ${flores}">
-            <td th:text="${flor.id}"></td>
-            <td th:text="${flor.tipo}"></td>
-            <td th:text="${flor.color}"></td>
-            <td th:text="${flor.variedad}"></td>
-            <td th:text="${flor.cantidad}"></td>
-            <td th:text="${flor.precioCompra}"></td>
-            <td th:text="${flor.precioVenta}"></td>
-            
-            <td>
-                <!-- Enlace para eliminar la flor -->
-                <a th:href="@{/flores/eliminar/{id}(id=${flor.id})}" onclick="return confirm('¿Estás seguro de que quieres eliminar esta flor?')">Eliminar</a>
-            </td>
+    <div class="container mt-4">
+        <h1 class="text-center">Lista de Flores</h1>
+        <table class="table table-bordered table-striped mt-3">
+            <thead class="thead-light">
+                <tr>
+                    <th>ID</th>
+                    <th>Tipo</th>
+                    <th>Variedad</th>
+                    <th>Cantidad</th>
+                    <th>Precio Compra</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr th:each="flor : ${flores}">
+                    <td th:text="${flor.id}"></td>
+                    <td th:text="${flor.tipo}"></td>
+                    <td th:text="${flor.variedad}"></td>
+                    <td th:text="${flor.cantidad}"></td>
+                    <td th:text="${flor.precioCompra}"></td>
+                    <td>
+                        <!-- Enlace para eliminar la flor -->
+                        <a th:href="@{/flores/eliminar/{id}(id=${flor.id})}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar esta flor?')">Eliminar</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="text-center mt-3">
+            <a href="/flores/nueva" class="btn btn-success">Agregar Nueva Flor</a>
+        </div>
+    </div>
 
-        </tr>
-    </table>
-    <a href="/flores/nueva">Agregar Nueva Flor</a>
-    
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

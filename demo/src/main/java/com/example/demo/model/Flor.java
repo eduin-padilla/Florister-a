@@ -11,11 +11,9 @@ public class Flor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
     private String tipo;
-    private String color;
     private String variedad;
     private int cantidad;
     private double precioCompra;
-    private double precioVenta;
+    
 }

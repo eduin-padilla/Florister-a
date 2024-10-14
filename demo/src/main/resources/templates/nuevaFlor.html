@@ -1,31 +1,43 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
 <head>
+    <meta charset="UTF-8">
     <title>Nueva Flor</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
-    <h1>Agregar Nueva Flor</h1>
-    <form th:action="@{/flores}" th:object="${flor}" method="post">
-        <label>Tipo:</label>
-        <input type="text" th:field="*{tipo}" />
-        <br/>
-        <label>Color:</label>
-        <input type="text" th:field="*{color}" />
-        <br/>
-        <label>Variedad:</label>
-        <input type="text" th:field="*{variedad}" />
-        <br/>
-        <label>Cantidad:</label>
-        <input type="number" th:field="*{cantidad}" />
-        <br/>
-        <label>Precio de Compra:</label>
-        <input type="number" th:field="*{precioCompra}" step="1" />
-        <br/>
-        <label>Precio de Venta:</label>
-        <input type="number" th:field="*{precioVenta}" step="1" />
-        <br/>
-        <button type="submit">Guardar Flor</button>
-    </form>
-    <a href="/flores">Regresar a la lista de flores</a>
+    <div class="container mt-4">
+        <h1 class="text-center">Agregar Nueva Flor</h1>
+        <form th:action="@{/flores}" th:object="${flor}" method="post" class="mt-4">
+            <div class="form-group">
+                <label>Tipo:</label>
+                <input type="text" th:field="*{tipo}" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label>Variedad:</label>
+                <input type="text" th:field="*{variedad}" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label>Cantidad:</label>
+                <input type="number" th:field="*{cantidad}" class="form-control" required />
+            </div>
+
+            <div class="form-group">
+                <label>Precio de Compra:</label>
+                <input type="number" th:field="*{precioCompra}" step="0" class="form-control" required />
+            </div>
+
+            <button type="submit" class="btn btn-primary">Guardar Flor</button>
+        </form>
+        <div class="text-center mt-3">
+            <a href="/flores" class="btn btn-secondary">Regresar a la lista de flores</a>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
